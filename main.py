@@ -3,11 +3,8 @@
 # Input:        Float(integers)
 # Output:       Salaries (rounded nearest 100)
 
-# Lists
+# List
 salaries = []
-
-# Variables
-default = 5000
 
 # Introduction
 print("Welcome the to final project")
@@ -21,7 +18,7 @@ while(True):
         continue
     else:
         salaries.append(salary)
-    another_input = input("Is there another salary to enter? yes or no: \n" )
+    another_input = input("Is there another salary to enter? yes or no: \n")
     if another_input == "yes":
         print(" ")
         continue
@@ -29,18 +26,29 @@ while(True):
         print(" ")
         break
 
+# Round salaries to the nearest 100
+round_sal = [round(salary, 2) for salary in salaries]
+
 # Average of the salaries inputted
 def avg_sal():
-    average = sum(salaries) / len(salaries)
-    return average
+    average = sum(round_sal) / len(round_sal)
+    return round(average, 2)
 
-# Salaries within default range
-minRange = avg_sal() - default
-maxRange = avg_sal + default
+# Set Range
+minRange = avg_sal() - 5000
+maxRange = avg_sal() + 5000
+
+# Salaries within range
+for round_sal in minRange, maxRange:
+    print (round_sal)
 
 
 # Print statements of results
 print("Salary Analysis Results:")
 print("Salaries: ", salaries)
-print("Average of the employee's salaries: $" +str(avg_sal()))
-# print("Salaries within +/-$5000: ")
+print ("Rounded salaries: ", round_sal)
+print("Average of the employee's salaries: $" + str(avg_sal()))
+
+
+
+# within_range_salaries = salary for salary in rounded_salaries if range_start <= salary <= range_end
