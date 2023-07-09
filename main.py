@@ -5,6 +5,7 @@
 
 # List
 salaries = []
+avg_range = []
 
 # Introduction
 print("Welcome the to final project")
@@ -31,16 +32,13 @@ round_sal = [round(salary, 2) for salary in salaries]
 
 # Average of the salaries inputted
 def avg_sal():
+    global average
     average = sum(round_sal) / len(round_sal)
     return round(average, 2)
 
 # Set Range
-minRange = avg_sal() - 5000
-maxRange = avg_sal() + 5000
-
-# Salaries within range
-for round_sal in minRange, maxRange:
-    print (round_sal)
+minRange = avg_sal() - 50
+maxRange = avg_sal() + 50
 
 
 # Print statements of results
@@ -49,6 +47,12 @@ print("Salaries: ", salaries)
 print ("Rounded salaries: ", round_sal)
 print("Average of the employee's salaries: $" + str(avg_sal()))
 
+# Salaries within range
+for average in round_sal:
+    if average >= minRange and average <= maxRange:
+        avg_range.append(average)
 
-
-# within_range_salaries = salary for salary in rounded_salaries if range_start <= salary <= range_end
+if minRange < 0:
+    print("Please restart the program. Minimum range is below $0.")
+else:
+    print("Employees in range: $" + str(avg_range))
