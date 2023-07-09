@@ -40,6 +40,10 @@ def avg_sal():
 minRange = avg_sal() - 50
 maxRange = avg_sal() + 50
 
+# Salaries within range
+for average in round_sal:
+    if average >= minRange and average <= maxRange:
+        avg_range.append(average)
 
 # Print statements of results
 print("Salary Analysis Results:")
@@ -47,12 +51,11 @@ print("Salaries: ", salaries)
 print ("Rounded salaries: ", round_sal)
 print("Average of the employee's salaries: $" + str(avg_sal()))
 
-# Salaries within range
-for average in round_sal:
-    if average >= minRange and average <= maxRange:
-        avg_range.append(average)
-
+# If list is empty
+if len(avg_range) == 0:
+    print("No employee salaries are within the salary range.")
+else:
+    print("Employees within salary range of +/- $5000: $" + str(avg_range))
+# Minimum Range is below 0
 if minRange < 0:
     print("Please restart the program. Minimum range is below $0.")
-else:
-    print("Employees in range: $" + str(avg_range))
